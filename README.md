@@ -8,4 +8,4 @@
 
 ## Результат роботи програми:
 
-<img src="https://github.com/ppc-ntu-khpi/tui-lab1-34-aTochilov/tree/master/Lab%201%20-TUI/tui-lab1.png" width="100%"/>
+<img src="https://github.com/ppc-ntu-khpi/tui-lab1-34-aTochilov/blob/master/Lab%201%20-TUI/tui-lab1.png" width="100%"/>
