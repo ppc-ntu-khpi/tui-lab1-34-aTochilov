@@ -12,4 +12,6 @@
 
 ## Report viewer
 
+Додано можливість перегляду звіту за клієнтами банку в окремому вікні.
+
 <img src="https://github.com/ppc-ntu-khpi/tui-lab1-34-aTochilov/blob/master/Lab%201%20-TUI/report-viewer.png" width="100%"/>
