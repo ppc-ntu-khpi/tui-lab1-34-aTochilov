@@ -8,7 +8,6 @@ public class CustomerReport {
   }
 
   public void generateReport() {
-
     // Print report header
     System.out.println("\t\t\tCUSTOMERS REPORT");
     System.out.println("\t\t\t================");
@@ -46,5 +45,44 @@ public class CustomerReport {
                            + account.getBalance());
       }
     }
+  }
+  
+    public String printReport() {
+        StringBuilder strb = new StringBuilder();
+    // For each customer...
+    for ( int cust_idx = 0;
+          cust_idx < Bank.getNumberOfCustomers();
+          cust_idx++ ) {
+      Customer customer = Bank.getCustomer(cust_idx);
+
+      // Print the customer's name
+      strb.append("Customer: ")
+              .append(customer.getLastName()).append(", ")
+              .append(customer.getFirstName());
+
+      // For each account for this customer...
+      for ( int acct_idx = 0;
+            acct_idx < customer.getNumberOfAccounts();
+            acct_idx++ ) {
+        Account account = customer.getAccount(acct_idx);
+        String  account_type = "";
+
+        // Determine the account type
+        if ( account instanceof SavingsAccount ) {
+          account_type = "\nSavings Account";
+        } else if ( account instanceof CheckingAccount ) {
+          account_type = "\nChecking Account";
+        } else {
+          account_type = "\nUnknown Account Type";
+        }
+
+        // Print the current balance of the account
+        strb.append(account_type)
+                .append(": current balance is ")
+                .append(account.getBalance());
+      }
+      strb.append("\n\n==========================================\n\n");
+    }
+    return strb.toString();
   }
 }

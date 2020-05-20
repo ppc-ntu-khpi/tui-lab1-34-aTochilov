@@ -13,6 +13,7 @@ import com.mybank.domain.Account;
 import com.mybank.domain.Customer;
 import com.mybank.domain.SavingsAccount;
 import com.mybank.data.DataSource;
+import com.mybank.reporting.CustomerReport;
 
 
 /**
@@ -23,6 +24,7 @@ public class TUIdemo extends TApplication {
 
     private static final int ABOUT_APP = 2000;
     private static final int CUST_INFO = 2010;
+    private static final int REPORT_VIEW = 2020;
 
     public static void main(String[] args) throws Exception {
         TUIdemo tdemo = new TUIdemo();
@@ -36,6 +38,7 @@ public class TUIdemo extends TApplication {
         //custom 'File' menu
         TMenu fileMenu = addMenu("&File");
         fileMenu.addItem(CUST_INFO, "&Customer Info");
+        fileMenu.addItem(REPORT_VIEW, "&View report");
         fileMenu.addDefaultItem(TMenu.MID_SHELL);
         fileMenu.addSeparator();
         fileMenu.addDefaultItem(TMenu.MID_EXIT);
@@ -66,6 +69,10 @@ public class TUIdemo extends TApplication {
         }
         if (menu.getId() == CUST_INFO) {
             ShowCustomerDetails();
+            return true;
+        }
+        if (menu.getId() == REPORT_VIEW){
+            viewReport();
             return true;
         }
         return super.onMenu(menu);
@@ -114,5 +121,16 @@ public class TUIdemo extends TApplication {
                 }
             }
         });
+    }
+    
+    private void viewReport(){
+        TWindow reportWind = addWindow("Report Window", 1, 1, 48, 22, TWindow.NOZOOMBOX);
+        TText details = reportWind.addText("No reports", 2, 2, 46, 20);
+                try {
+                    CustomerReport cr = new CustomerReport();
+                    details.setText(cr.printReport());
+                }catch (Exception e) {
+                    messageBox("Error", "You must provide a valid customer number!").show();
+                }
     }
 }
