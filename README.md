@@ -9,3 +9,7 @@
 ## Результат роботи програми:
 
 <img src="https://github.com/ppc-ntu-khpi/tui-lab1-34-aTochilov/blob/master/Lab%201%20-TUI/tui-lab1.png" width="100%"/>
+
+## Report viewer
+
+<img src="https://github.com/ppc-ntu-khpi/tui-lab1-34-aTochilov/blob/master/Lab%201%20-TUI/report-viewer.png" width="100%"/>
